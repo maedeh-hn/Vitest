@@ -28,5 +28,39 @@ it("should yield correct sum if an array of numeric string values provided",()=>
     const expectedREsult=number.reduce(
         (prevValue,curValue)=>prevValue+ +curValue,0
     )
-    expect(result).toBe(3)
+    expect(result).toBe(expectedREsult)
 })
+
+it("should yield 0 if an empty array was provided",()=>{
+    const number=[]
+    const result=add(number)
+
+    expect(result).toBe(0)
+})
+
+it("should throw an error if no values pass into the function",()=>{  
+//     try{
+//         const result=add()
+        
+//   }catch(error){
+// expect(error).toBeDefined()
+//   }
+
+const resultFn=()=>{
+    add()
+}
+
+expect (resultFn).toThrow()
+})
+
+
+
+it("should throw an error if provided with multiple argument instead of an array",()=>{  
+   const num1=1
+   const num2=2
+    const resultFn=()=>{
+        add(num1,num2)
+    }
+    
+    expect (resultFn).toThrow()
+    })
